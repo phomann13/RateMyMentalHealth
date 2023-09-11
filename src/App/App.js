@@ -1,8 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import React from 'react';
+import './App.css';
+import { useState } from 'react';
+import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
+import { faPerson } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+        
 function App() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert("Submiteed")
+        alert({email})
+        alert({password})
+        setEmail('');
+        setPassword('');
+      };
+    
+    
+    
   return (
     
     <div className="page-container">
@@ -16,12 +37,11 @@ function App() {
             
             <div className="accounts">
                 <button className="account-boxes">
-                <FontAwesomeIcon icon="fa-brands fa-twitter" />
-                <FontAwesomeIcon icon="check-square" />
+                <FontAwesomeIcon icon={faBuildingColumns} />
                     <p>University</p>
                 </button>
                 <button className="account-boxes">
-                    <i  className="fa-solid fa-person " ></i>
+                <FontAwesomeIcon icon={faPerson} />
                     <p>Individual</p>
                 </button>
             </div>
@@ -33,11 +53,14 @@ function App() {
             </div>
 
             
-            <form className="login" action="Home.html">
+            <form onSubmit={handleSubmit} id="loginForm" name="form" className="login" noValidate action="Home.html">
                 <div className="email">
-                    <i className="fa-solid fa-envelope"></i>
+                <FontAwesomeIcon icon={faEnvelope} />
                     <label className="in-field">
-                        <input className="credent" type="email" required placeholder="Email"/>
+                        <input className="credent" type="text" name="email" value={email} 
+                        onChange={(event) =>
+                        setEmail(event.target.value)} 
+                        required placeholder="Email"/>
                         <span className="focus-border">
                             <i></i>
                         </span>
@@ -46,9 +69,13 @@ function App() {
                 </div>
                     
                 <div className="password">
-                    <i className="fa-solid fa-lock"></i>
+                <FontAwesomeIcon icon={faLock} />
                     <label className="in-field">
-                        <input className="credent" type="password" required placeholder="Password"/>
+                        <input className="credent" type="password" name="password" 
+                        onChange={(event) =>
+                            setPassword(event.target.value)}
+                        value = {password}
+                            required placeholder="Password"/>
                         <span className="focus-border">
                             <i></i>
                         </span>
@@ -81,6 +108,8 @@ function App() {
         </div>
     </div>
   );
+  
 }
+
 
 export default App;
