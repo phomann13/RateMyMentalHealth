@@ -140,7 +140,7 @@ function App() {
             </form>
             <div className="no-account">
                 
-                <p>No Account? <Link to='/signup' >Sign up</Link></p>
+                <div>No Account? <Link to='/signup' >Sign up</Link></div>
                 <a href="Home.html">Continue as Guest</a>
                 
                 
