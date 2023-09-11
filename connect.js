@@ -1,3 +1,19 @@
+/**
+ * institution:
+ *  name
+ *  username
+ *  email
+ *  password
+ */
+
+/**
+ * person: 
+ *  firstname
+ *  lastname
+ *  username
+ *  email
+ *  password
+ */
 
 const {MongoClient} = require('mongodb');
 
