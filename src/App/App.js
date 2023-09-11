@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function App() {
   return (
@@ -16,8 +15,6 @@ function App() {
             
             <div className="accounts">
                 <button className="account-boxes">
-                <FontAwesomeIcon icon="fa-brands fa-twitter" />
-                <FontAwesomeIcon icon="check-square" />
                     <p>University</p>
                 </button>
                 <button className="account-boxes">
