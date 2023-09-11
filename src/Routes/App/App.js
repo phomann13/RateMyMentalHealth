@@ -1,12 +1,12 @@
 import React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Link } from 'react-router-dom';
+
 import './App.css';
-import { useState, useEffect } from 'react';
-import { faArrowsSplitUpAndLeft, faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
-import { faPerson } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+
+import { useState } from 'react';
+import { faPerson , faBuildingColumns, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { MongoClient } from 'mongodb';
 
         
 function App() {
@@ -26,6 +26,10 @@ function App() {
 
     /*//returns true if login works, false otherwise
     async function verifyLogin(){
+=======
+    //returns true if login works, false otherwise
+    /*async function verifyLogin(){
+>>>>>>> 809c36db4695a412a524609ba57abd586721422e:src/Routes/App/App.js
         const URI = "mongodb+srv://t-hyland:Tomh@cluster0.0uz4cny.mongodb.net/?retryWrites=true&w=majority";
         const client = new MongoClient(URI);
 
@@ -82,7 +86,7 @@ function App() {
     
   return (
     
-    <div className="page-container">
+    <div className="page-container" >
         <div>
             <h1>{message}</h1>
         </div>
@@ -151,7 +155,7 @@ function App() {
             </form>
             <div className="no-account">
                 
-                <p>No Account? <a href="Signup.html">Sign up!</a></p>
+                <div>No Account? <Link to='/signup' >Sign up</Link></div>
                 <a href="Home.html">Continue as Guest</a>
                 
                 
