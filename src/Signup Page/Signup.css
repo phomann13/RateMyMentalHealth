@@ -1,0 +1,134 @@
+body{
+    background-color: lightblue;
+    text-align: center;
+}
+
+.page-contianer{
+    background-color: lightblue;
+    text-align: center;
+   
+}
+
+.center-container{
+    text-align: center;
+    background-color: white;
+    color: rgb(30, 193, 211);
+    margin-top: 5%;
+    margin-right: 25%;
+    margin-left: 25%;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.accounts{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.account-boxes{
+    min-width: min-content;
+    font-size: 5vw;
+    overflow-x: hidden;
+    text-align: center;
+    width: 15%;
+    padding: 10px;
+    margin: 5px;
+    border-style: solid;
+    border-color:black;
+    border-width: 1px;
+}
+.account-boxes:hover{
+    box-shadow: 5px 2.5px 2.5px  rgb(30, 193, 211);
+}
+.account-boxes:focus{
+    background-color: rgb(30, 193, 211);
+}
+
+.account-boxes p{
+    font-size: 1.25vw;
+}
+
+.welcome{
+    margin: 20px;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+.actions a {
+    margin-right: 15px;
+}
+.indiv_name{
+    display: none;
+    border-radius: 5px;
+    margin: 2%;
+    border: 1px solid black;
+    width: 50%;
+    font-size: 25px
+}
+
+.univ_name{
+    display: none;
+    border-radius: 5px;
+    margin: 2%;
+    border: 1px solid black;
+    width: 50%;
+    font-size: 25px
+
+}
+.email, .password, .name{
+    
+    border-radius: 5px;
+    margin: 2%;
+    border: 1px solid black;
+    width: 50%;
+    font-size: 25px
+}
+
+.password a{
+    font-size: 14px;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  .in-field {
+    font-size: 14px;
+    
+    border-top: 20px solid transparent;
+  }
+  
+.in-field input {
+    border: none;
+    appearance: none;
+    background: none;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px ;
+    overflow: visible;
+  }
+
+  .in-field input:focus{
+    transition: border-bottom .6s linear;
+    outline: none;
+ }
+ .in-field input:focus::placeholder{
+    transform: translateX(-200%);
+    color: black;
+    z-index: 3;
+ }
+
+ .signup{
+    background-color: rgb(30, 193, 211);
+ }
+
+ #Account_Type{
+    display: hidden
+ }

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import { useState } from 'react';
 import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
@@ -15,11 +16,27 @@ function App() {
   
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Submiteed")
-        alert({email})
-        alert({password})
+    
+        const newUser = {
+            // username: username,
+             email: email,
+             password: password
+           };
+     
+         //alert(JSON.stringify(newUser))
+     
+         fetch('https://reqres.in/api/login', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify(newUser)
+         });
+     
+         //alert("fetch complete")
         setEmail('');
         setPassword('');
+        
       };
     
     
@@ -46,9 +63,9 @@ function App() {
                 </button>
             </div>
             <div className="welcome">
-                <p1>Hello </p1> 
-                <p2 id="Account Type" >Account type</p2>
-                <p1>Please login in below to get started!</p1>
+                <p>Hello </p> 
+                <p id="Account_Type" >Account type</p>
+                <p>Please login in below to get started!</p>
 
             </div>
 
