@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faPersonCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -120,7 +121,7 @@ function Signup() {
                 </div>
                     
                 <div className="password">
-                    <i className="fa-solid fa-lock"></i>
+                    <FontAwesomeIcon icon={faLock} />
                     <label className="in-field">
                         <input className="credent" type="password" name="password" required placeholder="Password" value={password}
                         onChange={(event) =>

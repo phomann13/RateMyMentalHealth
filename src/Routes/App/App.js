@@ -1,14 +1,12 @@
 
 import React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Link } from 'react-router-dom';
+
 import './App.css';
 import { useState } from 'react';
-import { faArrowsSplitUpAndLeft, faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
-import { faPerson } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { faPerson , faBuildingColumns, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { MongoClient } from 'mongodb';
+//import { MongoClient } from 'mongodb';
 
         
 function App() {
@@ -16,7 +14,7 @@ function App() {
     const [password, setPassword] = useState('');
 
     //returns true if login works, false otherwise
-    async function verifyLogin(){
+    /*async function verifyLogin(){
         const URI = "mongodb+srv://t-hyland:Tomh@cluster0.0uz4cny.mongodb.net/?retryWrites=true&w=majority";
         const client = new MongoClient(URI);
 
@@ -34,7 +32,7 @@ function App() {
             await client.close();
         }
         return false; 
-    }
+    }*/
   
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -66,14 +64,14 @@ function App() {
         setEmail('');
         setPassword('');
 
-        verifyLogin();
+        //verifyLogin();
     };
     
     
     
   return (
     
-    <div className="page-container">
+    <div className="page-container" >
         <div>
             <h1>Test</h1>
         </div>
@@ -142,7 +140,7 @@ function App() {
             </form>
             <div className="no-account">
                 
-                <p>No Account? <a href="Signup.html">Sign up!</a></p>
+                <p>No Account? <Link to='/signup' >Sign up</Link></p>
                 <a href="Home.html">Continue as Guest</a>
                 
                 
