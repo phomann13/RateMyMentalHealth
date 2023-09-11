@@ -3,16 +3,38 @@ import React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import { useState } from 'react';
-import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
+import { faArrowsSplitUpAndLeft, faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MongoClient } from 'mongodb';
 
         
 function App() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    //returns true if login works, false otherwise
+    async function verifyLogin(){
+        const URI = "mongodb+srv://t-hyland:Tomh@cluster0.0uz4cny.mongodb.net/?retryWrites=true&w=majority";
+        const client = new MongoClient(URI);
+
+        try{
+            await client.connect();
+
+            const result = await client.db("RateMyProffessor").collection("people").findOne({email: {email}});
+            if (result.password == {password}) {
+                return true; 
+            } 
+        } catch (e) {
+            console.error(e);
+            return false; 
+        } finally {
+            await client.close();
+        }
+        return false; 
+    }
   
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -37,7 +59,15 @@ function App() {
         setEmail('');
         setPassword('');
         
-      };
+      
+        alert("Submited")
+        alert({email})
+        alert({password})
+        setEmail('');
+        setPassword('');
+
+        verifyLogin();
+    };
     
     
     
@@ -128,5 +158,5 @@ function App() {
   
 }
 
-
 export default App;
+
