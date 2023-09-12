@@ -9,15 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
         
 function App() {
-    const [message, setMessage] = useState("");
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    useEffect(() => {
-        fetch("http://localhost:8000/message")
-          .then((response) => response.json())
-          .then((data) => setMessage(data.title));
-    }, []);
     
     //runs when submit is pressed
     const handleSubmit = (event) => {
@@ -68,9 +61,6 @@ function App() {
   return (
     
     <div className="page-container" >
-        <div>
-            <h1>{message}</h1>
-        </div>
         <div className="center-container">
             <div className="title">
                 <h1>Choose an Your Type</h1>
