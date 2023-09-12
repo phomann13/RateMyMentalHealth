@@ -32,11 +32,10 @@ app.post("/loginData", (request, response) => {
 
 //verifies login from currUser and sends T/F to app
 app.get("/verification", (request, response) => {
-  let x = verifyUser(currUser).then((data) => 
+  verifyUser(currUser).then((data) => 
     response.json({
       message: data
   }));
-  console.log(x);
 })
 
 //starts the server
@@ -51,7 +50,6 @@ async function verifyUser(user){
     const result = await client.db("RateMyMentalHealth").collection("people").findOne({email: user.email});
     if (result != null && result.password == user.password){
       await client.close();
-      console.log(true);
       return true;
     } 
   }
