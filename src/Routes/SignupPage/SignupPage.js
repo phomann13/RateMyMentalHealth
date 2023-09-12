@@ -1,7 +1,7 @@
 
-import React, { Component } from 'react';
+import React, {  useState, useEffect, } from 'react';
+import {useNavigate} from 'react-router-dom'
 import './Signup.css';
-import { useState } from 'react';
 import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -16,6 +16,9 @@ function Signup() {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [signedUp, setSignedUp] = useState('')
+    let attempt = false;
+    const navigate = useNavigate();
   
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -82,7 +85,16 @@ function Signup() {
         setPassword('');*/
         
     };
-    
+    useEffect(() => {
+        if (signedUp === "True"){
+            navigate("/home")
+        } else {
+            if(signedUp === "False" && attempt === true){
+                alert("Error with signing up please try again")
+            
+            }
+        }
+    }, [signedUp]);
     
     
   return (
