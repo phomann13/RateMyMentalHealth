@@ -1,11 +1,18 @@
+const {MongoClient} = require('mongodb');
 const express = require("express");
 const cors = require("cors");
+const { faBullseye } = require('@fortawesome/free-solid-svg-icons');
 const app = express();
+
+//saves database URI
+const uri = "mongodb+srv://t-hyland:Tomh@cluster0.wzdgtmt.mongodb.net/?retryWrites=true&w=majority";
+//creates client that is linked to the database
+const client = new MongoClient(uri);
 
 app.use(cors());
 app.use(express.json());
 
-let email = "", password = "";
+let currUser = {};
 
 //gives json object to the webpage 
 app.get("/message", (request, response) => {
@@ -13,22 +20,23 @@ app.get("/message", (request, response) => {
              title: "Boobs"});
 });
 
+//gets login data and saves to currUser
 app.post("/loginData", (request, response) => {
-  let user = {
-    email: request.body.email,
-    password: request.body.password,
-  }
-  insert(user);
+  //thisEmail = request.body.email;
+  //thisPassword = request.body.password; 
+  currUser.email = request.body.email;
+  currUser.password = request.body.password; 
 
-  response.send("message recieved");
+  response.send("User recieved");
 });
 
+//verifies login from currUser and sends T/F to app
 app.get("/verification", (request, response) => {
-  if (email == "a") {
-    response.json({ message: true });
-  } else {
-    response.json({ message: false });
-  }
+  let x = verifyUser(currUser).then((data) => 
+    response.json({
+      message: data
+  }));
+  console.log(x);
 })
 
 //starts the server
@@ -36,26 +44,21 @@ app.listen(8000, () => {
   console.log(`Server is running on port 8000.`);
 });
 
+async function verifyUser(user){
+  try{
+    await client.connect();
 
-
-//database stuff
-const {MongoClient} = require('mongodb');
-
-async function insert(user){
-    //saves database URI
-    const uri = "mongodb+srv://t-hyland:Tomh@cluster0.0uz4cny.mongodb.net/?retryWrites=true&w=majority";
-
-    //creates client that is linked to the database
-    const client = new MongoClient(uri);
-
-    try {
-        //connects client to the database
-        await client.connect();
-
-        await client.db("RateMyProffessor").collection("posts").insertOne(user);
-    } catch (e){
-        console.error(e);
-    } finally {
-        await client.close();
-    }
-};
+    const result = await client.db("RateMyMentalHealth").collection("people").findOne({email: user.email});
+    if (result != null && result.password == user.password){
+      await client.close();
+      console.log(true);
+      return true;
+    } 
+  }
+  catch (e){
+    console.error(e);
+  } finally {
+    await client.close();
+  }
+  return false;
+}

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Routes, useNavigate, Link } from 'react-router-dom';
-
 import './App.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { faPerson , faBuildingColumns, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { MongoClient } from 'mongodb';
@@ -16,70 +15,52 @@ function App() {
 
     useEffect(() => {
         fetch("http://localhost:8000/message")
-          .then((res) => res.json())
+          .then((response) => response.json())
           .then((data) => setMessage(data.title));
     }, []);
-
-    useEffect(() => {
-        
-    });
-
-    /*//returns true if login works, false otherwise
-    async function verifyLogin(){
-=======
-    //returns true if login works, false otherwise
-    /*async function verifyLogin(){
->>>>>>> 809c36db4695a412a524609ba57abd586721422e:src/Routes/App/App.js
-        const URI = "mongodb+srv://t-hyland:Tomh@cluster0.0uz4cny.mongodb.net/?retryWrites=true&w=majority";
-        const client = new MongoClient(URI);
-
-        try{
-            await client.connect();
-
-            const result = await client.db("RateMyProffessor").collection("people").findOne({email: {email}});
-            if (result.password == {password}) {
-                return true; 
-            } 
-        } catch (e) {
-            console.error(e);
-            return false; 
-        } finally {
-            await client.close();
-        }
-        return false; 
-    }*/
-  
+    
+    //runs when submit is pressed
     const handleSubmit = (event) => {
         event.preventDefault();
-    
+
         const newUser = {
-            // username: username,
              email: email,
              password: password
            };
      
          //alert(JSON.stringify(newUser))
      
-         fetch('https://reqres.in/api/login', {
-             method: 'POST',
-             headers: {
-                 'Content-Type': 'application/json'
-             },
-             body: JSON.stringify(newUser)
-         });
-     
-         //alert("fetch complete")
-        setEmail('');
-        setPassword('');
-        
+        // fetch('https://reqres.in/api/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //   body: JSON.stringify(newUser)
+        //});
       
-        alert("Submited")
-        alert({email})
-        alert({password})
-        setEmail('');
-        setPassword('');
+        //alert("Submited");
+        //alert(email);
+        //alert(password);
+        //setEmail('');
+        //setPassword('');
 
-        //verifyLogin();
+        fetch('http://localhost:8000/loginData', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        fetch('http://localhost:8000/verification', {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((data) => alert("Allow login: " + data.message));
+
     };
     
     
@@ -117,7 +98,7 @@ function App() {
                 <div className="email">
                 <FontAwesomeIcon icon={faEnvelope} />
                     <label className="in-field">
-                        <input className="credent" type="text" name="email" value={email} 
+                        <input className="credent" type="email" name="email" value={email} 
                         onChange={(event) =>
                         setEmail(event.target.value)} 
                         required placeholder="Email"/>
