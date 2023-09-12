@@ -20,18 +20,53 @@ function Signup() {
     const handleSubmit = (event) => {
         event.preventDefault();
     
-        const newUser = {
+        /*const newUser = {
             // username: username,
             univName: univName,
             firstName: firstName,
             lastName: lastName,
             email: email,
             password: password
-        };
+        };*/
+
+        if (univName == null) {
+            fetch('http://localhost:8000/signUpData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    type: "person",
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password
+                })
+            })
+                .then((response) => response.json())
+                .then((data) => alert(data.message));
+        } else {
+            fetch('http://localhost:8000/signUpData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    type: "univ",
+                    univName: univName,
+                    email: email,
+                    password: password
+                })
+            })
+                .then((response) => response.json())
+                .then((data) => alert(data.message));
+
+        }
+        
      
          //alert(JSON.stringify(newUser))
      
-        fetch('https://reqres.in/api/register', {
+        /*fetch('https://reqres.in/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -44,7 +79,7 @@ function Signup() {
         setLastName('');
         setUnivName('');
         setEmail('');
-        setPassword('');
+        setPassword('');*/
         
     };
     
@@ -133,7 +168,7 @@ function Signup() {
                     </label>
                     
                 </div>
-                <input type="submit" />
+                <input type="submit"/>
             </form>
         </div>
     </div>
