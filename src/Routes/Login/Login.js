@@ -17,14 +17,8 @@ function Login() {
     //runs when submit is pressed
     const HandleSubmit = (event) => {
         event.preventDefault();
-        
-        //alert({loggedIn})
-        const newUser = {
-             email: email,
-             password: password
-           };
 
-        /*fetch('http://localhost:3000/loginData', {
+        fetch('http://localhost:8000/loginData', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
