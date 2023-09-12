@@ -25,19 +25,19 @@ function Signup() {
             univName: univName,
             firstName: firstName,
             lastName: lastName,
-             email: email,
-             password: password
-           };
+            email: email,
+            password: password
+        };
      
          //alert(JSON.stringify(newUser))
      
-         fetch('https://reqres.in/api/register', {
-             method: 'POST',
-             headers: {
-                 'Content-Type': 'application/json'
-             },
-             body: JSON.stringify(newUser)
-         });
+        fetch('https://reqres.in/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newUser)
+        });
      
         alert(JSON.stringify(newUser))
         setFirstName('');
@@ -46,7 +46,7 @@ function Signup() {
         setEmail('');
         setPassword('');
         
-      };
+    };
     
     
     
