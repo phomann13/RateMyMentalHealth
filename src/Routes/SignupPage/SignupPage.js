@@ -16,7 +16,7 @@ function Signup() {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [signedUp, setSignedUp] = useState('')
+    const [signedUp, setSignedUp] = useState(false)
     let attempt = false;
     const navigate = useNavigate();
   
@@ -62,7 +62,7 @@ function Signup() {
                 })
             })
                 .then((response) => response.json())
-                .then((data) => alert(data.message));
+                .then((data) => setSignedUp(data.message));
 
         }
         
@@ -86,10 +86,10 @@ function Signup() {
         
     };
     useEffect(() => {
-        if (signedUp === "True"){
+        if (signedUp === true){
             navigate("/home")
         } else {
-            if(signedUp === "False" && attempt === true){
+            if(signedUp === false && attempt === true){
                 alert("Error with signing up please try again")
             
             }
