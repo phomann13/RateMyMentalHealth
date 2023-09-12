@@ -39,8 +39,8 @@ app.get("/verification", (request, response) => {
 })
 
 //starts the server
-app.listen(8000, () => {
-  console.log(`Server is running on port 8000.`);
+app.listen(3000, () => {
+  console.log(`Server is running on port 3000.`);
 });
 
 async function verifyUser(user){

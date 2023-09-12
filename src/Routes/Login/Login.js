@@ -1,43 +1,30 @@
-import React from 'react';
-import { Route, Routes, useNavigate, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import './Login.css';
-
-import { useState, useEffect } from 'react';
+import Skyline from './skyline.png'
 import { faPerson , faBuildingColumns, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Link, useNavigate} from 'react-router-dom'
 //import { MongoClient } from 'mongodb';
 
         
 function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loggedIn, setLoggedIn] = useState('')
+    let attempt = false;
     
     //runs when submit is pressed
-    const handleSubmit = (event) => {
+    const HandleSubmit = (event) => {
         event.preventDefault();
-
+        
+        //alert({loggedIn})
         const newUser = {
              email: email,
              password: password
            };
-     
-         //alert(JSON.stringify(newUser))
-     
-        // fetch('https://reqres.in/api/login', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //   body: JSON.stringify(newUser)
-        //});
-      
-        //alert("Submited");
-        //alert(email);
-        //alert(password);
-        //setEmail('');
-        //setPassword('');
 
-        fetch('http://localhost:8000/loginData', {
+        /*fetch('http://localhost:3000/loginData', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,13 +35,32 @@ function Login() {
             })
         });
 
-        fetch('http://localhost:8000/verification', {
+        fetch('http://localhost:3000/verification', {
             method: "GET"
         })
             .then((response) => response.json())
-            .then((data) => alert("Allow login: " + data.message));
+            .then((data) =>  setLoggedIn(data.message).then(alert("Allow login: " + data.message)));*/
+        //Need to see Json response to edit this function
+        setLoggedIn("True")
+        attempt = true
+        return true;
+    }
 
-    };
+    useEffect(() => {
+        if (loggedIn === "True"){
+            navigate("/home")
+        } else {
+            if(loggedIn === "False" && attempt === true){
+                alert("Invalid email or password")
+            
+            }
+        }
+    }, [loggedIn]);
+
+    
+
+
+    
     
     
     
@@ -84,7 +90,8 @@ function Login() {
             </div>
 
             
-            <form onSubmit={handleSubmit} id="loginForm" name="form" className="login" noValidate action="Home.html">
+            <form onSubmit={HandleSubmit}
+                  id="loginForm" name="form" className="login" noValidate action="Home.html">
                 <div className="email">
                 <FontAwesomeIcon icon={faEnvelope} />
                     <label className="in-field">
@@ -115,11 +122,9 @@ function Login() {
                     
                 </div>
                 <div className="actions">
-                    <a>Forgot Password?</a>
-                <a href="Home.html">
-                    <button type>
-                    Login
-                </button></a>
+                    Forgot Password?
+                
+                    <input type='submit' value="Login" />
                 </div>
 
                 
@@ -127,11 +132,11 @@ function Login() {
             <div className="no-account">
                 
                 <div>No Account? <Link to='/signup' >Sign up</Link></div>
-                <a href="Home.html">Continue as Guest</a>
+                <Link to='/Home'>Continue as Guest</Link>
                 
                 
             </div>
-            <img className="skyline" src="skyline.png" alt="skyline"></img>
+            <img className="skyline" src={Skyline} alt="skyline"/>
             
 
 
