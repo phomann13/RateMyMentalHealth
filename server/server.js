@@ -58,8 +58,8 @@ app.post("/signUpData", (request, response) => {
 });
 
 //starts the server
-app.listen(8000, () => {
-  console.log(`Server is running on port 8000.`);
+app.listen(3000, () => {
+  console.log(`Server is running on port 3000.`);
 });
 
 //returns 0 if user is saved to database, 1 if already in database, -1 if failed

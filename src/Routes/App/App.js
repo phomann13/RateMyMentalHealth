@@ -11,13 +11,14 @@ import Login from '../Login'
 import Signup from '../SignupPage'
         
 function App() {
+    const [loggedIn, setLoggedIn] = useState(true);
     return (
         
             <div className='App'>
                 
                 <div className='content'>
                     <Routes>
-                        <Route eaxct path='/' element={<Login />}></Route>
+                        <Route eaxct path='/' element={loggedIn ? <Login /> : <Home />}></Route>
                         <Route path='/signup' element={<Signup />}></Route>
                         <Route path='/home' element={<Home />}></Route>
                     </Routes>
