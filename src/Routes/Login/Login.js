@@ -33,7 +33,7 @@ function Login() {
             method: "GET"
         })
             .then((response) => response.json())
-            .then((data) =>  setLoggedIn(data.message).then(alert("Allow login: " + data.message)));*/
+            .then((data) =>  setLoggedIn(data.message).then(alert("Allow login: " + data.message)));
         //Need to see Json response to edit this function
         setLoggedIn("True")
         attempt = true
