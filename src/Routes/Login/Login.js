@@ -16,27 +16,6 @@ function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const newUser = {
-             email: email,
-             password: password
-           };
-     
-         //alert(JSON.stringify(newUser))
-     
-        // fetch('https://reqres.in/api/login', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //   body: JSON.stringify(newUser)
-        //});
-      
-        //alert("Submited");
-        //alert(email);
-        //alert(password);
-        //setEmail('');
-        //setPassword('');
-
         fetch('http://localhost:8000/loginData', {
             method: 'POST',
             headers: {
