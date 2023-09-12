@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Component } from 'react';
 import './Signup.css';
 import { useState } from 'react';
 import { faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +9,7 @@ import { faPersonCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-        
+
 function Signup() {
     const [univName, setUnivName] = useState('');
     const [lastName, setLastName] = useState('');

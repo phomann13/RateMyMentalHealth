@@ -1,4 +1,19 @@
-import React from 'react';
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./Routes/App"
+import { BrowserRouter } from "react-router-dom"
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)
+
+
+/*import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Link, Routes, BrowserRouter} from 'react-router-dom';
 import './index.css';
@@ -8,28 +23,39 @@ import {createRoot} from 'react-dom/client';
 //import App from './App'
 
 
-import App from  './Routes/App'
+import Login from  './Routes/Login'
 import Signup from './Routes/SignupPage'
 import NotFound from './Routes/NotFound'
 
-
-const routes = [
+/*
+const routes = (
   <Routes>
-    <Route exact path="/" component={App} />
-    <Route exact path="/signup" component={Signup} />
+    <Route exact path="/" component={Login} />
+    <Route path="/signup" component={Signup} />
     <Route component={NotFound} />
-   </Routes>
-]
-const rootElement = document.getElementById('root');
+  </Routes>
+);
+/*const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 root.render(
-  <StrictMode>
     <BrowserRouter>
     <App />
+      <Routes>
+        <Route exact path="/" component={App} />
+        <Route path="/signup" component={Signup} />
+        <Route component={NotFound} />
+      </Routes>
     </BrowserRouter>
   
-</StrictMode>,
 );
+
+ReactDOM.render(
+  <Router>{routes}</Router>, document.getElementById('root')
+);*/
+
+
+
+//ReactDOM.render(<App />, document.getElementById('App'));
 
 
 
