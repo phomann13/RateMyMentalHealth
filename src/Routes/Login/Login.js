@@ -10,7 +10,7 @@ function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState('')
+    const [loggedIn, setLoggedIn] = useState(false)
     let attempt = false;
     
     //runs when submit is pressed
