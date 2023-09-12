@@ -3,8 +3,7 @@ import './Login.css';
 import Skyline from './skyline.png'
 import { faPerson , faBuildingColumns, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {Link, useNavigate} from 'react-router-dom'
-//import { MongoClient } from 'mongodb';
+import {Link, useNavigate} from 'react-router-dom';
 
         
 function Login() {
@@ -26,16 +25,16 @@ function Login() {
             body: JSON.stringify({
                 email: email,
                 password: password
-            })
+            }) 
         });
 
-        fetch('http://localhost:3000/verification', {
+        fetch('http://localhost:8000/verification', {
             method: "GET"
         })
             .then((response) => response.json())
+            .then((data) => setLoggedIn(data.message));
             .then((data) =>  setLoggedIn(data.message));
         //Need to see Json response to edit this function
-        setLoggedIn("True")
         attempt = true
         return true;
     }
