@@ -33,17 +33,17 @@ function Login() {
         })
             .then((response) => response.json())
             .then((data) => setLoggedIn(data.message));
-            .then((data) =>  setLoggedIn(data.message));
+            
         //Need to see Json response to edit this function
         attempt = true
         return true;
     }
 
     useEffect(() => {
-        if (loggedIn === "True"){
+        if (loggedIn === true){
             navigate("/home")
         } else {
-            if(loggedIn === "False" && attempt === true){
+            if(loggedIn === false && attempt === true){
                 alert("Invalid email or password")
             
             }
