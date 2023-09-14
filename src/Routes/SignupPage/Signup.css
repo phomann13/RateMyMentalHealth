@@ -62,25 +62,10 @@ body{
 .actions a {
     margin-right: 15px;
 }
-.indiv_name{
-    display: none;
-    border-radius: 5px;
-    margin: 2%;
-    border: 1px solid black;
-    width: 50%;
-    font-size: 25px
-}
 
-.univ_name{
-    display: none;
-    border-radius: 5px;
-    margin: 2%;
-    border: 1px solid black;
-    width: 50%;
-    font-size: 25px
 
-}
-.email, .password, .name{
+
+.field{
     
     border-radius: 5px;
     margin: 2%;
@@ -129,6 +114,4 @@ body{
     background-color: rgb(30, 193, 211);
  }
 
- #Account_Type{
-    display: hidden
- }
+ 
