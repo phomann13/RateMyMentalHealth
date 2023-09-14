@@ -60,9 +60,13 @@ function Login() {
   return (
     
     <div className="page-container" >
+        
         <div className="center-container">
+        
+        
             <div className="title">
                 <h1>Choose an Your Type</h1>
+                <Link to='/post'>Post!</Link>
             </div>
             
             <div className="accounts">

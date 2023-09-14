@@ -95,6 +95,7 @@ function Signup() {
             }
         }
     }, [signedUp]);
+  
     
     
   return (
@@ -105,7 +106,7 @@ function Signup() {
             </div>
             
             <div className="accounts">
-                <button className="account-boxes" onclick= ' univ_sign()'>
+                <button className="account-boxes" onclick= 'univ_sign()'>
                 <FontAwesomeIcon icon={faBuildingColumns} />
                     <p>University</p>
                 </button>
