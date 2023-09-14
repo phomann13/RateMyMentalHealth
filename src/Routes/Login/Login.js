@@ -70,7 +70,7 @@ function Login() {
             </div>
             
             <div className="accounts">
-                <button className="account-boxes">
+                <button className="account-boxes" onclick={()=>{alert('alert')}}>
                 <FontAwesomeIcon icon={faBuildingColumns} />
                     <p>University</p>
                 </button>
