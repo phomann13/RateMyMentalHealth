@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Home from '../HomePage'
 import Login from '../Login'
 import Signup from '../SignupPage'
+import PostPage from '../PostPage/PostPage';
         
 function App() {
     const [loggedIn, setLoggedIn] = useState(true);
@@ -21,6 +22,7 @@ function App() {
                         <Route eaxct path='/' element={loggedIn ? <Login /> : <Home />}></Route>
                         <Route path='/signup' element={<Signup />}></Route>
                         <Route path='/home' element={<Home />}></Route>
+                        <Route path='/post' element={<PostPage />}></Route>
                     </Routes>
                 </div>
             </div>
