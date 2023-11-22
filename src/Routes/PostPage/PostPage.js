@@ -61,13 +61,19 @@ function PostPage() {
                             <input type="range" min="1" max="100" class="slider" id="culture-rating" value={culture}
                             onChange={(event) =>
                                 setCulture(event.target.value)}/>
+                            <div class="slide-value">
+                                {culture}
+                            </div>
                         </div> <br></br>
 
                         <label for="resources-rating">Rating of Institution Mental Health Resources</label>
                         <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value={resource}class="slider" id="resources-rating"
+                            <input type="range" min="1" max="100" value={resource} class="slider" id="resources-rating"
                             onChange={(event) =>
                                 setResource(event.target.value)} />
+                            <div class="slide-value">
+                                {resource}
+                            </div>
                         </div> <br/>
                         <input type='submit' value='Post'/>
                     </form>
