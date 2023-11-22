@@ -1,0 +1,29 @@
+.reportContainer{
+    display: flexbox;
+    background-color: white;
+    border-radius: 10px;
+    width: 75%;
+    height: 10vh;
+    min-height: 50px;
+    text-align: center;
+    margin: 10px auto;
+}
+.schoolName{
+    display: flexbox;
+    float: left;
+    align-items: baseline;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo{
+    float: left;
+    width: 10vh;
+    height: 10vh;
+    min-width: 50px;
+    min-height: 50px;
+    object-fit: contain;
+}
+.rating{
+    width: fit-content;
+}

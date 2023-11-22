@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { faPerson , faBuildingColumns, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { MongoClient } from 'mongodb';
-import Home from '../HomePage'
+import Home from '../HomePage/HomePage'
 import Login from '../Login'
 import Signup from '../SignupPage'
 import PostPage from '../PostPage/PostPage';
