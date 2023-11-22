@@ -67,6 +67,7 @@ function Login() {
             <div className="title">
                 <h1>Choose an Your Type</h1>
                 <Link to='/post'>Post!</Link>
+                <Link to='/home'>Go Home</Link>
             </div>
             
             <div className="accounts">
